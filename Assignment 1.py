@@ -48,8 +48,33 @@ print sum
 '''
 #7번
 #정수 입력
-print '정수입력?: '; num = raw_input()
-print num
+print '정수입력?: ' 
+num = int(raw_input())
+
+x = 2
+isPrime = True
+if num == 2:
+    print 2
+
+for n in range(2, num):
+    isPrime=True
+    for a in range(2, n):
+        if n % a == 0:
+            isPrime=False            
+        else:
+            continue        
+    if isPrime is True:
+        print n,
+
+        
+        
+
+
+
+    
+    
+        
+
 #1은 소수가 아니므로 2부터 시작
 
 

@@ -15,7 +15,31 @@ print 7/5, -7/5, -(7/5)
 
 #키보드로 정수값을 입력 받고 그 값이 양수인지 음수인지를 비트 연산자를 이용하여 판단하는 프로그램을 작성하시오.
 #[참고] 가장 왼쪽에 있는 비트가 0이면 양수이며, 1이면 음수이다.
-input = raw_input()
+def discriminator(num):
+    if(num > 0 ):
+        result = (num >> len(bin(int(num))[2:])-1)
+        return result
+    elif (num < 0):
+        return (num >> len(bin(int(num))[3:]))
+    else:
+        return 0
+        
+switch_case = {
+        1 : "양수",
+        2 : "음수",
+        0 : "영"
+        }
+
+while True:
+    input_nu = input(u"숫자 입력: ")        
+    input_num = discriminator(input_nu)
+    print input_nu,"판별: ", switch_case[input_num]
+    print
+    if input == 0:
+        break;
+        
+
+
 
 
 #키보드로 정수값을 입력 받고 그 값이 양수인지 음수인지를 비트 연산자를 이용하여 판단하는 프로그램을 작성하시오.
@@ -44,6 +68,8 @@ def list_union (l1, l2):
         if x not in relist:
             relist.append(x)
     return relist
+    
+print list_union ([1,2,3], [1,2,4])
     
 
 '''

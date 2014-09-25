@@ -63,7 +63,7 @@ for n in range(2, num):
             isPrime=False            
         else:
             continue        
-    if isPrime is True:
+    if isPrime is True:s
         print n,
 
         

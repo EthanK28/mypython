@@ -1,3 +1,2 @@
-korea: 74058a33a708681347daa08f419040a46cb72cca, korea, korea
-kor: f29039bb8459f1061e18f555dee9484ea19d33e1, kor, kor
-kang: af13c68d557406c432b162e9de183a2643f8073f, kang, kang
+ko: 65a7da8f45e5a2f3931f4d650cb1ecb17b805231, ko, ko
+korea: eed5f3b9bf6b2970cc87f65bbac08d38d4219d32, korea, korea

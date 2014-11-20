@@ -1,7 +1,8 @@
 __author__ = 'ES'
 # -*- coding: utf-8 -*-
 import sha
-
+import os
+import copy
 # 메뉴를 표시하고 메뉴를 입력받는다(0-4).
 def menu():
     print "1. Sign Up"
@@ -9,10 +10,15 @@ def menu():
     print "3. quit"
     return input('Select menu: ')
 
-f = open('access.txt', 'r+')
-if(f.read() == ''):
-    f.close()
+if not os.path.isfile('access.txt'):
     f = open('access.txt','w+')
+else:
+    f = open('access.txt', 'r+')
+    if(f.read() == ''):
+        f.close()
+        f = open('access.txt','a+')
+
+
 
 def checkId(Id, file):
     print "아이디 중복검사 함수 시작"
@@ -46,13 +52,14 @@ def subStringName(info):
 
 #ID 존재 검사 함수
 def checkForId(id, database):
+    database = copy.deepcopy(database)
     i = 0
     for x in database:
         x = subStringId(x)
         database[i] = x
         i = i + 1
-    for x in database:
-        print x
+    #for x in database:
+     #   print x
     #id 존재 True 반환, 비존재 False 반환
     if (id not in database):
         return False
@@ -63,6 +70,7 @@ def checkForId(id, database):
 #Pass 일치 검사 함수
 def checkForPass(id, password, database):
     password = sha.new(password).hexdigest()
+
     for x in range(len(database)):
         if (id in database[x]):
             if (password in database[x]):
@@ -97,7 +105,7 @@ while 1:
 
         password = sha.new(password).hexdigest()
         file_input = id + ": " + password + ", " + name + ", " + school + "\n"
-        print file_input
+        print "입력한 정보: ", file_input
 
         #password_plain = "my password"
         #password_encrypted = sha.new(password_plain).hexdigest()
@@ -128,7 +136,6 @@ while 1:
                 print "Sorry, the entered password is not correct."
             else:
                 print "Hello ["+idFlag+"]!"
-
 
 
     if sel == 3:

@@ -1,3 +1,10 @@
 __author__ = 'ES'
 def sum(*args):
-    args
+    result = 0
+    print args
+    for x in args:
+        result = result + x
+    return result
+
+
+

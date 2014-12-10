@@ -1,0 +1,2 @@
+ko: 65a7da8f45e5a2f3931f4d650cb1ecb17b805231, ko, ko
+korea: eed5f3b9bf6b2970cc87f65bbac08d38d4219d32, korea, korea

@@ -1,5 +1,9 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
+
+# import sys
+# reload(sys)
+# sys.setdefaultencoding('utf-8')
 __author__ = 'Eunseok'
 '''
 
@@ -198,7 +202,7 @@ class WebWordsFrequency:
 
         maxNum = numlist[0]
         if(numlist.count(maxNum)!=1):
-            print "맥스넘버가 하나가 아닐경우 호출"
+            """ 맥스넘버가 하나가 아닐경우 호출 """
             count = 0
             self.result = []
             while 0 <= numlist.count(maxNum):
@@ -213,7 +217,7 @@ class WebWordsFrequency:
             print "반복횟수 중복된 값 X"
             for key in self.result.keys():
                 if(self.result[key] == maxNum):
-                    print key, self.result[key]
+                    print "%s : %s" % (key, self.result[key])
         return True
 
 
@@ -258,9 +262,9 @@ print "7번조건"
 w1.getMaxFreqencyWords()
 w2.getMaxFreqencyWords()
 
-print "8번조건 파일 저장 코드 삭제 완료"
+# print "8번조건 파일 저장 코드 삭제 완료"
 
-print "-------------"
+# print "-------------"
 
 #8번문제
 
@@ -282,13 +286,18 @@ class OrderedWebWordsFrequency(WebWordsFrequency):
                     self.result[x] = self.result[x]+url[x]
         #print self.result
         numlist = sorted(self.result.values(),reverse=True)
+        print "num list 출력"
         print numlist
 
+        print "num list 안값 출력"
         for x in numlist:
             for y in self.result.keys():
                 if(self.result[y] == x):
                     self.OrderedList.append((y, x));
-        print self.OrderedList[:4]
+        # print self.OrderedList[:4]
+        for x, y in self.OrderedList[:4]:
+            print "%s : %s" % (x.decode('utf-8').encode('utf-8'), y)
+            print type(x), type(y)
 
 
 
@@ -302,6 +311,5 @@ class OrderedWebWordsFrequency(WebWordsFrequency):
         '''
 
 w4 = OrderedWebWordsFrequency('www.daum.net', 'www.naver.com', 'www.google.co.kr')
+print "Get Words' Frequencies"
 w4.getWordsFrequency()
-
-
